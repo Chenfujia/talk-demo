@@ -70,8 +70,7 @@ public class Server {
         public void run() {
             try {
                 // 向客户端发送欢迎消息
-                out.println(userName+":欢迎连接到服务器! 您的IP:"+clientSocket.getInetAddress().getHostAddress()+"输入exit可以断开连接");
-                out.println("在线用户列表:可输入用户名建立连接:"+clientMap.keySet());
+                out.println(userName+":欢迎连接到服务器! 您的IP:"+clientSocket.getInetAddress().getHostAddress()+"输入exit可以断开连接\n在线用户列表:可输入用户名建立连接:"+clientMap.keySet());
                 //广播谁上线了
                 for (Map.Entry<String,ClientHandler> entry:clientMap.entrySet()){
                     if (!entry.getKey().equals(userName)){
