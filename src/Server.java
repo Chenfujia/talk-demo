@@ -43,7 +43,13 @@ public class Server {
             String userName = bufferedReader.readLine();
             //地址和端口
             System.out.println("用户"+userName+"已连接\tIP:"+client.getInetAddress().getHostAddress()+":"+client.getPort());
-
+            if (userName==null){
+                continue;
+            }
+            if (clientMap.containsKey(userName)){
+                clientMap.get(userName).out.println("用户名已存在,请重新输入:");
+                continue;
+            }
             ClientHandler clientHandler = new ClientHandler(client, userName);
             clientMap.put(userName,clientHandler);
 
