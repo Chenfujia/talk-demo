@@ -96,6 +96,10 @@ public class Server {
                         while (true){
                             out.println("请输入消息:");
                             String msg = in.readLine();
+                            //判断是否掉线
+                            if (msg==null){
+                                break;
+                            }
                             if ("esc".equals(msg)){
                                 out.println("当前在线用户列表:"+clientMap.keySet());
                                 break;
