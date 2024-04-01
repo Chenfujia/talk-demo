@@ -1,7 +1,4 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Map;
@@ -142,9 +139,9 @@ public class Server {
         private boolean openStream(Socket clientSocket){
             try {
                 // 获取客户端输入流，用于接收消息
-                in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+                in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream(),"UTF-8"));
                 // 获取客户端输出流，用于发送消息
-                out = new PrintWriter(clientSocket.getOutputStream(), true);
+                out = new PrintWriter(new OutputStreamWriter(clientSocket.getOutputStream(),"UTF-8"), true);
                 return true;
             } catch (IOException e) {
                 System.err.println("用户开启流失败: " + e.getMessage());

@@ -1,7 +1,4 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
+import java.io.*;
 import java.net.Socket;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -19,7 +16,7 @@ public class Client {
             Socket socket = new Socket(serverHost, serverPort);// 连接服务器
 
             BufferedReader serverInput = new BufferedReader(new InputStreamReader(socket.getInputStream(),"UTF-8"));
-            PrintWriter serverOutput = new PrintWriter(socket.getOutputStream(), true);
+            PrintWriter serverOutput = new PrintWriter(new OutputStreamWriter(socket.getOutputStream(),"UTF-8"), true);
             BufferedReader userInput = new BufferedReader(new InputStreamReader(System.in));
             System.out.println("连接到服务器成功，请输入你的用户名：");
             String userName = userInput.readLine();
