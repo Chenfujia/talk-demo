@@ -18,7 +18,7 @@ public class Client {
         try {
             Socket socket = new Socket(serverHost, serverPort);// 连接服务器
 
-            BufferedReader serverInput = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            BufferedReader serverInput = new BufferedReader(new InputStreamReader(socket.getInputStream(),"UTF-8"));
             PrintWriter serverOutput = new PrintWriter(socket.getOutputStream(), true);
             BufferedReader userInput = new BufferedReader(new InputStreamReader(System.in));
             System.out.println("连接到服务器成功，请输入你的用户名：");
