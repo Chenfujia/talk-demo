@@ -12,8 +12,8 @@ public class Client {
     public static void main(String[] args) {
 
 
-        String serverHost = "localhost"; // 服务器地址
-        int serverPort = 8888; // 服务器端口
+        String serverHost = "623fk08tu364.vicp.fun"; // 服务器地址
+        int serverPort = 33182; // 服务器端口
         ExecutorService executorService = Executors.newFixedThreadPool(10);
         try {
             Socket socket = new Socket(serverHost, serverPort);// 连接服务器
